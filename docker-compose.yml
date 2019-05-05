@@ -1,0 +1,17 @@
+version: '3'
+services:
+  go:
+    build: ./GO
+    environment:
+      DISPLAY: $DISPLAY
+    volumes:
+      - /tmp/X11-unix:/tmp/X11-unix
+      - ./GO/src:/home/developer/go/src
+      - ./GO/config:/home/developer/.GoLand2019.1/config
+      - ./GO/system:/home/developer/.GoLand2019.1/system
+    network_mode: host
+
+  ganache-cli:
+    image: trufflesuite/ganache-cli:latest
+    ports:
+      - "8545:8545"
