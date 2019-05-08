@@ -10,7 +10,8 @@ RUN apt-get -y update && apt-get install -y --no-install-recommends sudo \
     chromium-browser \
     git \
     gcc \
-    libc6-dev
+    libc6-dev \
+    fuse
 
 RUN export uid=1000 gid=1000 && \
     mkdir -p /home/developer/go/src && \
@@ -32,5 +33,8 @@ WORKDIR /home/developer
 VOLUME /home/developer/go/src
 
 RUN /usr/local/go/bin/go get github.com/ethereum/go-ethereum/ethclient
+
+COPY ./Ganache-2.0.1.AppImage /usr/local/bin
+RUN sudo chmod +x /usr/local/bin/Ganache-2.0.1.AppImage
 
 ENTRYPOINT /home/developer/GoLand-2019.1.1/bin/goland.sh

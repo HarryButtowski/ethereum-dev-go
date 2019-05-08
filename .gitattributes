@@ -1,1 +1,2 @@
 *.tar.gz filter=lfs diff=lfs merge=lfs -text
+GO/Ganache-2.0.1.AppImage filter=lfs diff=lfs merge=lfs -text

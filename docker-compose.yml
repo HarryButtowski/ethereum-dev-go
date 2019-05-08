@@ -1,7 +1,12 @@
 version: '3'
 services:
   go:
-    build: ./GO
+    build:
+      context: ./GO
+    devices:
+      - /dev/fuse
+    cap_add:
+      - SYS_ADMIN
     environment:
       DISPLAY: $DISPLAY
     volumes:
