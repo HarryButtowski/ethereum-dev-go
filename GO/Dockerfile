@@ -32,8 +32,6 @@ WORKDIR /home/developer
 
 VOLUME /home/developer/go/src
 
-RUN /usr/local/go/bin/go get github.com/ethereum/go-ethereum/ethclient
-
 COPY ./Ganache-2.0.1.AppImage /usr/local/bin
 RUN sudo chmod +x /usr/local/bin/Ganache-2.0.1.AppImage
 

@@ -15,6 +15,8 @@ services:
       - ./GO/config:/home/developer/.GoLand2019.1/config
       - ./GO/system:/home/developer/.GoLand2019.1/system
     network_mode: host
+    security_opt:
+      - seccomp:unconfined
 
   ganache-cli:
     image: trufflesuite/ganache-cli:latest
